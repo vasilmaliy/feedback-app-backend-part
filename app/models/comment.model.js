@@ -6,12 +6,16 @@ module.exports = (sequelize, Sequelize) => {
             allowNull:  false,
             primaryKey: true
         },
-        comment: {
+        text: {
             type: Sequelize.STRING,
             allowNull: false
         },
         created_data: {
             type: Sequelize.DATE
+        },
+        userName: {
+            type: Sequelize.STRING,
+            allowNull: false
         }
     });
 

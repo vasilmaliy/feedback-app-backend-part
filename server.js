@@ -23,6 +23,7 @@ const Role = db.role;
 const Post = db.post;
 const Vote = db.vote;
 const User = db.user;
+const Comment = db.comment;
 
 // db.sequelize.sync();
 // force: true will drop the table if it already exists
@@ -94,6 +95,22 @@ function initial() {
     username: 'malko',
     email: 'vasil.maliy14@gmail.com',
     password: bcrypt.hashSync('12341234', 8)
+  })
+
+  Comment.create({
+    text: 'first comment',
+    created_data: '2022-01-01T08:00:00.000Z',
+    userId: 1,
+    userName: 'malko',
+    postId: 1
+  })
+
+  Comment.create({
+    text: 'доре зроблено',
+    created_data: '2022-01-01T08:00:00.000Z',
+    userId: 1,
+    userName: 'malko',
+    postId: 1
   })
 
   // User.findOne({where: {username: 'malko'}})

@@ -20,6 +20,11 @@ module.exports = function(app) {
     );
 
     app.get(
+      "/api/feedback/comments",
+      controller.getAllComments
+    );
+
+    app.get(
       "/api/feedback/vote",
       controller.getIfUserVote
     );
@@ -28,6 +33,12 @@ module.exports = function(app) {
       "/api/feedback/vote",
       [authJwt.verifyToken],
       controller.vote
+    );
+
+    app.post(
+      "/api/feedback/comment",
+      [authJwt.verifyToken],
+      controller.addComment
     );
 
     app.delete(
