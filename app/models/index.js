@@ -62,6 +62,14 @@ db.user.belongsToMany(db.post, {
   otherKey: "postId"
 });
 
+db.user.hasMany(db.comment, {
+  foreignKey: "userId"
+})
+
+db.post.hasMany(db.comment, {
+  foreignKey: "postId"
+})
+
 db.ROLES = ["user", "admin", "moderator"];
 
 module.exports = db;
